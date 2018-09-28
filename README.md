@@ -12,7 +12,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 ios.deployment_target = '10.0'
 install Ruby
-install cocoa pod 
+install cocoa pod  `gem install cocoapods`
 
 ## Installation
 
