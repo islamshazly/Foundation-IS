@@ -45,7 +45,7 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		78EDE912C8D66573DC38A971 /* Pods-Foundation-IS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foundation-IS_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Foundation-IS_Example/Pods-Foundation-IS_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		85EDF051F98B8E45BCB6DA98 /* Pods-Foundation-IS_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foundation-IS_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Foundation-IS_Tests/Pods-Foundation-IS_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		9BA5D278215E15850014A3C0 /* Foundation+IS.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Foundation+IS.podspec"; path = "../Foundation+IS.podspec"; sourceTree = "<group>"; };
+		9BA5D278215E15850014A3C0 /* Foundation+IS.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Foundation+IS.podspec"; path = "../Foundation+IS.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C49CAC8CF4AAF07B395499B7 /* Pods-Foundation-IS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foundation-IS_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Foundation-IS_Example/Pods-Foundation-IS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		ECE364E49D9C090023546FC8 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,7 +271,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Foundation-IS_Example/Pods-Foundation-IS_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Foundation+IS/Foundation_IS.framework",
+				"${BUILT_PRODUCTS_DIR}/Foundation-IS/Foundation_IS.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (

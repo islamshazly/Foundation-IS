@@ -20,12 +20,12 @@ Foundation-IS is available through [CocoaPods](https://cocoapods.org). To instal
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Foundation-IS'
+pod 'Foundation+IS'
 ```
 
 ## Author
 
-islamshazly, islam.elshazly92@gmail.com
+islamshazly, islam.elshazly92@gmail.com,https://twitter.com/elshazly92
 
 ## License
 
