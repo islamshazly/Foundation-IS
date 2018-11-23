@@ -18,7 +18,7 @@ public extension NSAttributedString {
     }
 
     public var underlined: NSAttributedString {
-        return applying(attributes: [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+        return applying(attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
     }
     
     public var italicized: NSAttributedString {
@@ -26,10 +26,10 @@ public extension NSAttributedString {
     }
     
     public var striked: NSAttributedString {
-        return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
+        return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)])
     }
     
-    public var attributes: [NSAttributedStringKey: Any] {
+    public var attributes: [NSAttributedString.Key: Any] {
         return attributes(at: 0, effectiveRange: nil)
     }
     
@@ -42,7 +42,7 @@ public extension NSAttributedString {
 
 public extension NSAttributedString {
 
-    fileprivate func applying(attributes: [NSAttributedStringKey: Any]) -> NSAttributedString {
+    fileprivate func applying(attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
         let copy = NSMutableAttributedString(attributedString: self)
         let range = (string as NSString).range(of: string)
         copy.addAttributes(attributes, range: range)
@@ -51,7 +51,7 @@ public extension NSAttributedString {
     }
     
     /// Apply attributes to substrings matching a regular expression
-    public func applying(attributes: [NSAttributedStringKey: Any], toRangesMatching pattern: String) -> NSAttributedString {
+    public func applying(attributes: [NSAttributedString.Key: Any], toRangesMatching pattern: String) -> NSAttributedString {
         guard let pattern = try? NSRegularExpression(pattern: pattern, options: []) else { return self }
         
         let matches = pattern.matches(in: string, options: [], range: NSRange(0..<length))
@@ -65,7 +65,7 @@ public extension NSAttributedString {
     }
     
     /// Apply attributes to occurrences of a given string
-    public func applying<T: StringProtocol>(attributes: [NSAttributedStringKey: Any], toOccurrencesOf target: T) -> NSAttributedString {
+    public func applying<T: StringProtocol>(attributes: [NSAttributedString.Key: Any], toOccurrencesOf target: T) -> NSAttributedString {
         let pattern = "\\Q\(target)\\E"
         
         return applying(attributes: attributes, toRangesMatching: pattern)

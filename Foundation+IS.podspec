@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Foundation+IS'
-  s.version          = '0.1.0'
+  s.version          = '1.0.0'
   s.summary          = 'Extensions facilitate using Foundatoin Framework'
   s.description      = 'Extensions for arrays, bundle, charchters, Date, Strings, NSAttributedString, Currency, Fonts, URLS'
   s.homepage         = 'https://github.com/islamshazly/Foundation-IS'

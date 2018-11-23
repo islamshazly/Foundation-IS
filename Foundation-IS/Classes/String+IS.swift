@@ -126,25 +126,25 @@ public extension String {
     }
     
     public func underline() -> NSAttributedString {
-        let underlineString = NSAttributedString(string: self, attributes: [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+        let underlineString = NSAttributedString(string: self, attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
         
         return underlineString
     }
     
     public func bold(withFont font: UIFont) -> NSAttributedString {
-        let boldString = NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.font: font])
+        let boldString = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.font: font])
         
         return boldString
     }
     
     public func italic(withFont font: UIFont) -> NSAttributedString {
-        let italicString = NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.font: font])
+        let italicString = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.font: font])
         
         return italicString
     }
     
     public func color(_ color: UIColor) -> NSAttributedString {
-        let colorString = NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.foregroundColor: color])
+        let colorString = NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.foregroundColor: color])
         return colorString
     }
     
@@ -162,7 +162,7 @@ public extension String {
         }
         let attrText = NSMutableAttributedString(string: self)
         for range in ranges {
-            attrText.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: range)
+            attrText.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
         }
         
         return attrText
