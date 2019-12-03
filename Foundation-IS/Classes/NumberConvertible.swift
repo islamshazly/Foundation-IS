@@ -22,7 +22,7 @@ extension Int     : NumberConvertible {}
 
 public extension NumberConvertible {
     
-    public var c:CGFloat{
+    var c:CGFloat{
         return convert()
     }
     
@@ -42,27 +42,27 @@ public extension NumberConvertible {
         }
     }
     
-    public var abs: CGFloat {
+    var abs: CGFloat {
         return Swift.abs(c)
     }
     
-    public var ceil: CGFloat {
+    var ceil: CGFloat {
         return Foundation.ceil(c)
     }
     
-    public var degreesToRadians: CGFloat {
+    var degreesToRadians: CGFloat {
         return .pi * c / 180.0
     }
     
-    public var floor: CGFloat {
+    var floor: CGFloat {
         return Foundation.floor(c)
     }
     
-    public var isPositive: Bool {
+    var isPositive: Bool {
         return c > 0
     }
     
-    public var isNegative: Bool {
+    var isNegative: Bool {
         return c < 0
     }
     

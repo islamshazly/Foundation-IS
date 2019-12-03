@@ -3,7 +3,7 @@ import Foundation
 
 public extension Array {
     
-    public mutating func safeSwap(from index: Index, to otherIndex: Index) {
+    mutating func safeSwap(from index: Index, to otherIndex: Index) {
         guard index != otherIndex else { return }
         guard startIndex..<endIndex ~= index else { return }
         guard startIndex..<endIndex ~= otherIndex else { return }
@@ -14,7 +14,7 @@ public extension Array {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements up until condition evaluates to false.
-    public func take(while condition: (Element) throws -> Bool) rethrows -> [Element] {
+    func take(while condition: (Element) throws -> Bool) rethrows -> [Element] {
         for (index, element) in lazy.enumerated() where try !condition(element) {
             return Array(self[startIndex..<index])
         }
@@ -27,7 +27,7 @@ public extension Array {
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: self after applying provided condition.
     /// - Throws: provided condition exception.
-    public mutating func keep(while condition: (Element) throws -> Bool) rethrows -> [Element] {
+    mutating func keep(while condition: (Element) throws -> Bool) rethrows -> [Element] {
         for (index, element) in lazy.enumerated() where try !condition(element) {
             self = Array(self[startIndex..<index])
             break
@@ -40,7 +40,7 @@ public extension Array {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: Two arrays, the first containing the elements for which the specified condition evaluates to true, the second containing the rest.
-    public func divided(by condition: (Element) throws -> Bool) rethrows -> (matching: [Element], nonMatching: [Element]) {
+    func divided(by condition: (Element) throws -> Bool) rethrows -> (matching: [Element], nonMatching: [Element]) {
         //Inspired by: http://ruby-doc.org/core-2.5.0/Enumerable.html#method-i-partition
         var matching = [Element]()
         var nonMatching = [Element]()
@@ -51,7 +51,7 @@ public extension Array {
         return (matching, nonMatching)
     }
     
-    public mutating func shuffle() -> [Element] {
+    mutating func shuffle() -> [Element] {
         // http://stackoverflow.com/questions/37843647/shuffle-array-swift-3
         guard count > 1 else { return self }
         for index in startIndex..<endIndex - 1 {
@@ -64,7 +64,7 @@ public extension Array {
 }
 
     public extension Array where Element: Equatable {
-    public mutating func removeDuplicates() {
+    mutating func removeDuplicates() {
         self = reduce(into: [Element]()) {
             if !$0.contains($1) {
                 $0.append($1)
@@ -77,7 +77,7 @@ public extension Array {
     ///
     /// - Parameter item: item to remove.
     /// - Returns: self after removing all instances of item.
-    public mutating func removeAll(_ item: Element) -> [Element] {
+    mutating func removeAll(_ item: Element) -> [Element] {
         self = filter { $0 != item }
         return self
     }

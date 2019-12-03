@@ -9,7 +9,7 @@ import Foundation
 
 public extension Character {
     
-    public var isEmoji: Bool {
+    var isEmoji: Bool {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
         let scalarValue = String(self).unicodeScalars.first!.value
         switch scalarValue {
@@ -25,25 +25,25 @@ public extension Character {
             return false
         }
     }
-    public var isNumber: Bool {
+    var isNumber: Bool {
         return Int(String(self)) != nil
     }
-    public var isLetter: Bool {
+    var isLetter: Bool {
         return String(self).rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
     }
-    public var isLowercased: Bool {
+    var isLowercased: Bool {
         return String(self) == String(self).lowercased()
     }
-    public var isUppercased: Bool {
+    var isUppercased: Bool {
         return String(self) == String(self).uppercased()
     }
-    public var isWhiteSpace: Bool {
+    var isWhiteSpace: Bool {
         return self == " "
     }
-    public var lowercased: Character {
+    var lowercased: Character {
         return String(self).lowercased().first!
     }
-    public var uppercased: Character {
+    var uppercased: Character {
         return String(self).uppercased().first!
     }
     

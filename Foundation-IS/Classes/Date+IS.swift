@@ -12,10 +12,10 @@ public extension Date {
     static let minutesInAWeek = 24 * 60 * 7
     static let minutesInDay = 24 * 60
     
-    public init?(fromString string: String,
-                 format: String,
-                 timezone: TimeZone = TimeZone.autoupdatingCurrent,
-                 locale: Locale = Locale.current) {
+    init?(fromString string: String,
+          format: String,
+          timezone: TimeZone = TimeZone.autoupdatingCurrent,
+          locale: Locale = Locale.current) {
         
         let formatter = DateFormatter()
         formatter.timeZone = timezone
@@ -27,7 +27,7 @@ public extension Date {
         self = date
     }
     
-    public init?(httpDateString: String) {
+    init?(httpDateString: String) {
         if let rfc1123 = Date(fromString: httpDateString, format: "EEE',' dd' 'MMM' 'yyyy HH':'mm':'ss zzz") {
             self = rfc1123
             
@@ -67,7 +67,7 @@ public extension Date {
         return nil
     }
     
-    public func toString(dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .medium) -> String {
+    func toString(dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .medium) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = dateStyle
         formatter.timeStyle = timeStyle
@@ -75,49 +75,49 @@ public extension Date {
         return formatter.string(from: self)
     }
     
-    public func toString(format: String) -> String {
+    func toString(format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         
         return formatter.string(from: self)
     }
     
-    public func secondsInBetweenDate(_ date: Date) -> Double {
+    func secondsInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff)
         
         return diff
     }
     
-    public func minutesInBetweenDate(_ date: Date) -> Double {
+    func minutesInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/60)
         
         return diff
     }
     
-    public func hoursInBetweenDate(_ date: Date) -> Double {
+    func hoursInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/(60 * 60))
         
         return diff
     }
     
-    public func daysInBetweenDate(_ date: Date) -> Double {
+    func daysInBetweenDate(_ date: Date) -> Double {
         var diff = self.timeIntervalSince1970 - date.timeIntervalSince1970
         diff = fabs(diff/(60 * 60 * 24))
         
         return diff
     }
     
-    public var isToday: Bool {
+    var isToday: Bool {
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd"
         
         return format.string(from: self) == format.string(from: Date())
     }
     
-    public var isYesterday: Bool {
+    var isYesterday: Bool {
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd"
         let yesterDay = Calendar.current.date(byAdding: .day, value: -1, to: Date())
@@ -125,7 +125,7 @@ public extension Date {
         return format.string(from: self) == format.string(from: yesterDay!)
     }
     
-    public var isTomorrow: Bool {
+    var isTomorrow: Bool {
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd"
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: Date())
@@ -133,60 +133,60 @@ public extension Date {
         return format.string(from: self) == format.string(from: tomorrow!)
     }
     
-    public var isThisMonth: Bool {
+    var isThisMonth: Bool {
         let today = Date()
         
         return self.month == today.month && self.year == today.year
     }
     
-    public var isThisWeek: Bool {
+    var isThisWeek: Bool {
         return self.minutesInBetweenDate(Date()) <= Double(Date.minutesInAWeek)
     }
     
-    public var era: Int {
+    var era: Int {
         return Calendar.current.component(Calendar.Component.era, from: self)
     }
     
-    public var year: Int {
+    var year: Int {
         return Calendar.current.component(Calendar.Component.year, from: self)
     }
     
-    public var month: Int {
+    var month: Int {
         return Calendar.current.component(Calendar.Component.month, from: self)
     }
     
-    public var weekday: String {
+    var weekday: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE"
         
         return dateFormatter.string(from: self)
     }
     
-    public var monthAsString: String {
+    var monthAsString: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMMM"
         
         return dateFormatter.string(from: self)
     }
     
-    public var day: Int {
+    var day: Int {
         return Calendar.current.component(.day, from: self)
     }
     
-    public var hour: Int {
+    var hour: Int {
         return Calendar.current.component(.hour, from: self)
     }
     
-    public var minute: Int {
+    var minute: Int {
         return Calendar.current.component(.minute, from: self)
     }
     
-    public var second: Int {
+    var second: Int {
         return Calendar.current.component(.second, from: self)
     }
     
-    public var nanosecond: Int {
+    var nanosecond: Int {
         return Calendar.current.component(.nanosecond, from: self)
     }
-
+    
 }

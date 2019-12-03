@@ -9,7 +9,7 @@ import Foundation
 
 public extension Dictionary {
     
-    public func has(_ key: Key) -> Bool {
+    func has(_ key: Key) -> Bool {
         return index(forKey: key) != nil
     }
     

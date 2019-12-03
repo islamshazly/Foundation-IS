@@ -8,11 +8,11 @@ import Foundation
 
 public extension URL {
     
-    public var typeIdentifier: String? {
+    var typeIdentifier: String? {
         return (try? resourceValues(forKeys: [.typeIdentifierKey]))?.typeIdentifier
     }
     
-    public var queryParameters: [String: String]? {
+    var queryParameters: [String: String]? {
         guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false), let queryItems = components.queryItems else { return nil }
         
         var items: [String: String] = [:]
@@ -29,7 +29,7 @@ public extension URL {
 // MARK: - Methods
 public extension URL{
     
-    public func appendingQueryParameters(_ parameters: [String: String]) -> URL {
+    func appendingQueryParameters(_ parameters: [String: String]) -> URL {
         var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
         var items = urlComponents.queryItems ?? []
         items += parameters.map({ URLQueryItem(name: $0, value: $1) })
@@ -37,11 +37,11 @@ public extension URL{
         return urlComponents.url!
     }
     
-    public mutating func appendQueryParameters(_ parameters: [String: String]) {
+    mutating func appendQueryParameters(_ parameters: [String: String]) {
         self = appendingQueryParameters(parameters)
     }
     
-    public func deletingAllPathComponents() -> URL {
+    func deletingAllPathComponents() -> URL {
         var url: URL = self
         for _ in 0..<pathComponents.count - 1 {
             url.deleteLastPathComponent()

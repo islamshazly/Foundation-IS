@@ -9,7 +9,7 @@ import Foundation
 
 public extension DateFormatter {
     
-    public static func dateFromFormat(_ formate: String) {
+    static func dateFromFormat(_ formate: String) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formate
         dateFormatter.locale = Locale.current
